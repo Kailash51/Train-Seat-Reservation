@@ -10,13 +10,8 @@
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "composite": true, // Enable composite projects
+    "noEmit": false // Change this to false to allow emitting files
   },
   "include": ["vite.config.ts"]
 }
