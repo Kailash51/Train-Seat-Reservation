@@ -30,7 +30,7 @@ This project is a modern, user-friendly train seat reservation system built with
 To clone this repository, run the following command in your terminal:
 
 ```bash
-git clone https://github.com/your-username/train-seat-reservation.git
+git clone https://github.com/your-username/Train-Seat-Reservation.git
 cd train-seat-reservation
 ```
 
