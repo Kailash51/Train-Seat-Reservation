@@ -2,6 +2,8 @@
 
 This project is a modern, user-friendly train seat reservation system built with React, TypeScript, and Vite. It features a responsive design, real-time seat availability updates, and a smooth booking process.
 
+Check out the live demo of the project here: [Hack-A-Sol 3.0 Live](https://train-seat-reservation-kailash51s-projects.vercel.app/)
+
 ## Features
 
 - Interactive seat map with color-coded availability
