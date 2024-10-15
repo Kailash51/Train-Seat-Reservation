@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SeatMap from "./components/SeatMap";
 import BookingForm from "./components/BookingForm";
 import PassengerForm from "./components/PassengerForm";
@@ -9,7 +9,7 @@ import {
   bookSeats,
 } from "./utils/seatUtils";
 import { Coach, Passenger } from "./types";
-import { Train, ArrowLeft } from "lucide-react";
+import { Train } from "lucide-react";
 
 function App() {
   const [coach, setCoach] = useState<Coach>(initializeCoach());
@@ -73,32 +73,11 @@ function App() {
   };
 
   const handleBack = () => {
-    switch (step) {
-      case "passenger":
-        setStep("select");
-        setSelectedSeats([]);
-        break;
-      case "summary":
-        setStep("passenger");
-        break;
-      default:
-        break;
+    if (step === "passenger") {
+      setStep("select");
+    } else if (step === "summary") {
+      setStep("passenger");
     }
-  };
-
-  const renderBackButton = () => {
-    if (step === "passenger" || step === "summary") {
-      return (
-        <button
-          onClick={handleBack}
-          className="mb-4 flex items-center text-indigo-600 hover:text-indigo-800"
-        >
-          <ArrowLeft className="h-4 w-4 mr-1" />
-          Back
-        </button>
-      );
-    }
-    return null;
   };
 
   return (
@@ -111,7 +90,6 @@ function App() {
               <Train className="h-8 w-8 text-indigo-600" aria-hidden="true" />
               <h1 className="text-2xl font-semibold">Train Seat Reservation</h1>
             </div>
-            {renderBackButton()}
             {error && (
               <div
                 className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
@@ -136,6 +114,7 @@ function App() {
                   <PassengerForm
                     passengers={passengers}
                     onSubmit={handlePassengerSubmit}
+                    onBack={handleBack}
                   />
                 )}
                 {step === "summary" && (
@@ -143,7 +122,7 @@ function App() {
                     selectedSeats={selectedSeats}
                     passengers={passengers}
                     onConfirm={handleConfirmBooking}
-                    onCancel={handleBack}
+                    onBack={handleBack}
                   />
                 )}
                 {step === "confirmed" && (

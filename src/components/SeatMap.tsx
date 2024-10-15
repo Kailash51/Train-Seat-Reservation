@@ -19,7 +19,7 @@ const SeatMap: React.FC<SeatMapProps> = ({ coach, selectedSeats }) => {
     <div className="my-8">
       <h2 className="text-lg font-semibold mb-4">Seat Map</h2>
       <div
-        className="grid grid-cols-7 gap-2 p-4 bg-gray-100 rounded-lg"
+        className="grid grid-cols-4 sm:grid-cols-7 gap-2 p-4 bg-gray-100 rounded-lg"
         role="group"
         aria-label="Seat selection"
       >
